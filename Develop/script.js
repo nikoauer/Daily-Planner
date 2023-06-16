@@ -2,15 +2,36 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+
 // this functions monitors the date an appends it to the html
 $(document).ready(function() {
+  var now = dayjs();
   function timekeeping() {
-    var now = dayjs();
+    // this provides the day, month and date
     var time = now.format("dddd, MMMM D");
     $('#currentDay').text(time);
   }
-    // Call the timekeeping function initially
     timekeeping();
+  });
+
+  // This function retrieves the current hour and compares to the id of the time slots
+  $('.colorTheme').each(function(){
+      var presentHour = now.format("H");
+      // this stores the interger of the id being assessed
+      var idSlot = parseInt($(this).prop('id'));
+      // This will make all future timeslots within the the range of 6 hours have a green background color
+      if(idSlot > presentHour && idSlot < presentHour + 6){
+          $(this).css('background-color','#77dd77');
+      // This will make all past timeslots within the the range of 6 hours have a grey background color
+      }else if(idSlot < presentHour && idSlot > presentHour - 6){
+          $(this).css('background-color','#d3d3d3');
+      // If the currentHour matches the id's number then it is present hour and it will have a background color of red
+      }else if(idSlot === presentHour){
+          $(this).css('background-color','#ff6961');
+      // if the time slot does not fullfil these conditional it will remain white
+      }else{
+          $(this).css('background-color','white');
+      }
   });
 
 $(function () {
