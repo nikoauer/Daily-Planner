@@ -1,11 +1,11 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
+var now = dayjs();
 
 // this functions monitors the date an appends it to the html
 $(document).ready(function() {
-  var now = dayjs();
+
   function timekeeping() {
     // this provides the day, month and date
     var time = now.format("dddd, MMMM D");
@@ -26,7 +26,7 @@ $(document).ready(function() {
       }else if(idSlot < presentHour && idSlot > presentHour - 6){
           $(this).css('background-color','#d3d3d3');
       // If the currentHour matches the id's number then it is present hour and it will have a background color of red
-      }else if(idSlot === presentHour){
+      }else if(idSlot == presentHour){
           $(this).css('background-color','#ff6961');
       // if the time slot does not fullfil these conditional it will remain white
       }else{
