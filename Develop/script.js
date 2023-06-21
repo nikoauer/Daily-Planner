@@ -14,22 +14,18 @@ $(document).ready(function() {
 
   // This function retrieves the current hour and compares to the id of the time slots
   $('.colorTheme').each(function(){
-      var presentHour = now.format("H");
-      // this stores the interger of the id being assessed
-      var idSlot = parseInt($(this).prop('id'));
-      // This will make all future timeslots within the the range of 6 hours have a green background color
-      if(idSlot > presentHour && idSlot < presentHour + 6){
-          $(this).css('background-color','#77dd77');
-      // This will make all past timeslots within the the range of 6 hours have a grey background color
-      }else if(idSlot < presentHour && idSlot > presentHour - 6){
-          $(this).css('background-color','#d3d3d3');
-      // If the currentHour matches the id's number then it is present hour and it will have a background color of red
-      }else if(idSlot == presentHour){
-          $(this).css('background-color','#ff6961');
-      // if the time slot does not fullfil these conditionals it will remain white
-      }else{
-          $(this).css('background-color','white');
-      }
+    var presentHour = now.format("H");
+    var idSlot = parseInt($(this).prop('id'));
+    // if the idSlot is the same as the presentHour then it will be red
+    if(idSlot == presentHour) {
+      $(this).css('background-color','#ff6961');
+    // if the idSlot is greater than the presentHour it is a future time slot which will make it green
+    } else if(idSlot > presentHour) {
+      $(this).css('background-color','#77dd77');
+    // otherwise if it is neither of these then it must be a past hour and will remain grey
+    } else {
+      $(this).css('background-color','#d3d3d3');
+    }
   });
 
   // This is the local storage function 
