@@ -26,7 +26,7 @@ $(document).ready(function() {
       // If the currentHour matches the id's number then it is present hour and it will have a background color of red
       }else if(idSlot == presentHour){
           $(this).css('background-color','#ff6961');
-      // if the time slot does not fullfil these conditional it will remain white
+      // if the time slot does not fullfil these conditionals it will remain white
       }else{
           $(this).css('background-color','white');
       }
@@ -65,5 +65,25 @@ $(document).ready(function() {
   
       // This saves the new updated content back to local storage as JSON string
       localStorage.setItem('descriptionContent', JSON.stringify(storedContent));
+      
+      // this adds text to the savedDisplay id
+      var displaySave = $('#savedDisplay');
+      displaySave.text("Successfully saved");
+
+      var timeOut;
+
+      // this hides the savedDisplay id
+      function hideSave() {
+        displaySave.hide();
+      }
+      
+      // this shows the savedDisplay text for 2 seconds, clears the timeout value and then resets after 2 seconds the timeout value to hide the displaysave element
+      function showSave() {
+        displaySave.show();
+        clearTimeout(timeOut);
+        timeOut = setTimeout(hideSave, 2000);
+      }
+      showSave();
     });
   });
+
