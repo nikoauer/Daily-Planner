@@ -4,7 +4,7 @@
 This exercise allowed for me to attempt to fix the javascript logic behind this daily planner. The challenge was in converting my understanding of DOM manipulation from vanilla javasript into Jquery. Aside from building this application the value in fixing this project was for me to exercise and familiarise myself with the syntax of new API's such as jquery and bootstrap, which when understood are incredibly powerful tools. 
 
 # Usage
-Link to Github Pages daily organiser:
+Link to Github Pages daily organiser: https://nikoauer.github.io/Daily-Planner/
 
 ![alt text](./Assets/screenshot1.png)
 ![alt text](./Assets/screenshot2.png)
